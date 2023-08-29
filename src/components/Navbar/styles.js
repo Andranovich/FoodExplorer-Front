@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width: 100%;
-    background-color: ${({ theme }) => theme.COLORS.DARK_600};
-
     display: flex;
     flex-direction: row;
     padding: 24px 123px;
     align-items: center;
     justify-content: center;
+    width: 100%;
     gap: 32px;
+    
+    background-color: ${({ theme }) => theme.COLORS.DARK_600};
+
 
     > div {
         display: flex;
