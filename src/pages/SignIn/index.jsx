@@ -10,15 +10,7 @@ export function SignIn() {
                 <h1>food explorer</h1>
             </div>
             <Form>
-                <h1>Crie sua conta</h1>
-
-                <div className="FormInput">
-                    <p>Seu nome</p>
-                    <Input
-                        placeholder="Exemplo: Maria da Silva"
-                        type="text"
-                    />
-                </div>
+                <h1>Faça login</h1>
 
                 <div className="FormInput">
                     <p>Email</p>
@@ -36,9 +28,9 @@ export function SignIn() {
                     />
                 </div>
 
-                <Button>Criar conta</Button>
+                <Button title="Entrar"/>
 
-                <a href="/">Já tenho uma conta</a>
+                <a href="/">Crie uma conta</a>
 
 
             </Form>

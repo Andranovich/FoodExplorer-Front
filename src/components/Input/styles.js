@@ -10,6 +10,14 @@ export const Container = styled.div`
     
     background-color: ${({ theme }) => theme.COLORS.DARK_900};
 
+    > div {
+        border-radius: 5px;
+    }
+
+    svg {
+            margin-left: 99px;
+        }
+
 
     > input {
         display: flex;
@@ -21,10 +29,12 @@ export const Container = styled.div`
         gap: 14px;
         flex: 1 0 0;
         border: none;
+        border-radius: 5px;
 
         background-color: ${({ theme }) => theme.COLORS.DARK_900};
         color: ${({ theme }) => theme.COLORS.WHITE_500};
 
+         
         
     }
     

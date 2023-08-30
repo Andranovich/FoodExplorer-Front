@@ -1,10 +1,13 @@
 import { Container } from './styles';
 
-export function Button() {
+export function Button({title, ...rest}) {
 
     return (
-        <Container type="button">
-            Seu Botão
+        <Container
+            type="button"
+            {...rest}
+        >
+            {title}
         </Container>
     );
 }

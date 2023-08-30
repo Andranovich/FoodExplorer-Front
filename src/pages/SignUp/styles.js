@@ -10,22 +10,42 @@ export const Container = styled.div`
     padding: 90px 108px 112px 153px;
 
     h1 {
-        font-size: 42px;
+        font-family: Poppins;
+        font-size: 32px;
         font-style: normal;
-        font-weight: 700;
-        line-height: normal;
+        font-weight: 500;
+        line-height: 140%;
+    }
+
+    p {
+        color: ${({ theme }) => theme.COLORS.WHITE_400};
     }
 
 
     > div {
         display: flex;
         flex-direction: row;
-        gap: 10px;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 30px;
 
 
         img { 
             width: 47px;
         }
+
+        
+    }
+
+    h1, a, button {
+        font-family: Poppins;
+    }
+
+    a, button {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
     }
 `;
 
