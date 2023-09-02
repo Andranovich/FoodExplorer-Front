@@ -1,6 +1,10 @@
 import { Container, Footer } from "./styles";
 import { Navbar } from "../../components/Navbar";
 import { PiCaretLeft } from "react-icons/pi";
+import { ButtonInclude } from "../../components/ButtonInclude";
+import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+
+
 
 export function Plate() {
   return (
@@ -19,7 +23,24 @@ export function Plate() {
               Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
               O pão naan dá um toque especial.
             </p>
-            <span>alface</span>
+            <div className="tags">
+              <span>alface</span>
+              <span>cebola</span>
+              <span>pão naan</span>
+              <span>pepino</span>
+            </div>
+            <div className="amount">
+              <div className="counter">
+                <a href="/">
+                  <AiOutlineMinus />
+                </a>
+                <h4>01</h4>
+                <a href="/">
+                  <AiOutlinePlus />
+                </a>
+              </div>
+              <ButtonInclude title="incluir ∙ R$ 25,00" />
+            </div>
           </div>
         </div>
       </Container>
