@@ -1,39 +1,32 @@
 import { Container, Form } from "./styles";
-import { Input } from '../../components/Input';
-import { Button } from '../../components/Button';
+import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
 
 export function SignIn() {
-    return(
-        <Container>
-            <div>
-                <img src="/src/assets/Polygon 1.svg" alt="polygon" />
-                <h1>food explorer</h1>
-            </div>
-            <Form>
-                <h1>Faça login</h1>
+  return (
+    <Container>
+      <div>
+        <img src="/src/assets/imagens/Polygon1.svg" alt="polygon" />
+        <h1>food explorer</h1>
+      </div>
 
-                <div className="FormInput">
-                    <p>Email</p>
-                    <Input
-                        placeholder="Exemplo: exemplo@exemplo.com.br"
-                        type="email"
-                    />
-                </div>
+      <Form>
+        <h1 className="form">Faça login</h1>
 
-                <div className="FormInput">
-                    <p>Senha</p>
-                    <Input
-                        placeholder="No mínimo 6 caracteres"
-                        type="password"
-                    />
-                </div>
+        <div className="formInput">
+          <p>Email</p>
+          <Input placeholder="Exemplo: exemplo@exemplo.com.br" type="email" />
+        </div>
 
-                <Button title="Entrar"/>
+        <div className="formInput">
+          <p>Senha</p>
+          <Input placeholder="No mínimo 6 caracteres" type="password" />
+        </div>
 
-                <a href="/">Crie uma conta</a>
+        <Button title="Entrar" />
 
-
-            </Form>
-        </Container>
-    );
+        <a href="/">Crie uma conta</a>
+      </Form>
+    </Container>
+  );
 }

@@ -1,84 +1,121 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
-    height: 100vh;
-    width: 100vw;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  align-items: center;
+  padding: 90px 108px 112px 153px;
+
+  @media (max-width: 1100px) {
     display: flex;
-    align-items: stretch; 
-    justify-content: space-between;
+    flex-direction: column;
+    background-color: ${({ theme }) => theme.COLORS.DARK_400};
+    height: auto;
+  }
+
+  h1 {
+    font-family: Poppins;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+
+    @media (max-width: 1100px) {
+      font-size: 37px;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+
+  p {
+    color: ${({ theme }) => theme.COLORS.WHITE_400};
+  }
+
+  > div {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    padding: 90px 108px 112px 153px;
+    gap: 20px;
+    margin-bottom: 30px;
 
-    h1 {
-        font-family: Poppins;
-        font-size: 32px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 140%;
+    @media (max-width: 1100px) {
+      width: 348px;
+      align-items: center;
+      justify-content: start;
+      margin-top: 158px;
+      margin-bottom: 70px;
     }
 
-    p {
-        color: ${({ theme }) => theme.COLORS.WHITE_400};
+    img {
+      width: 47px;
+
+      @media (max-width: 1100px) {
+        width: 43px;
+      }
     }
+  }
 
+  > h1,
+  a,
+  button {
+    font-family: Poppins;
+  }
 
-    > div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 20px;
-        margin-bottom: 30px;
-
-
-        img { 
-            width: 47px;
-        }
-
-        
-    }
-
-    h1, a, button {
-        font-family: Poppins;
-    }
-
-    a, button {
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 100%;
-    }
+  > a,
+  button {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+  }
 `;
 
 export const Form = styled.form`
-    padding: 64px;
-    background-color: ${({ theme }) => theme.COLORS.DARK_600};
+  padding: 64px;
+  background-color: ${({ theme }) => theme.COLORS.DARK_600};
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+
+  text-align: center;
+  border-radius: 15px;
+
+  @media (max-width: 1100px) {
+    background-color: ${({ theme }) => theme.COLORS.DARK_400};
+    padding-top: 0;
+  }
+
+  h1 {
+    @media (max-width: 1100px) {
+      display: none;
+    }
+  }
+
+  > .formInput p {
+    text-align: start;
+    padding-bottom: 8px;
+  }
+
+  > .formInput input {
+    width: 348px;
+    border-radius: 8px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 32px;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 
-
-    text-align: center;
-    border-radius: 15px;
-
-    > .FormInput p {
-        text-align: start;
-        padding-bottom: 8px;
-        
+  > button {
+    @media (max-width: 1100px) {
+      height: 48px;
     }
+  }
 
-    > .FormInput input {
-        width: 348px;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        
-    }
-
-    > a {
-        
-        color: ${({ theme }) => theme.COLORS.WHITE_100};
-    }
+  > a {
+    color: ${({ theme }) => theme.COLORS.WHITE_100};
+  }
 `;

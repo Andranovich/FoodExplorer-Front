@@ -8,8 +8,8 @@ export default createGlobalStyle`
     }
 
     body {
-        background-color: ${({ theme}) => theme.COLORS.DARK_400};
-        color: ${({ theme}) => theme.COLORS.WHITE_100};
+        background-color: ${({ theme }) => theme.COLORS.DARK_400};
+        color: ${({ theme }) => theme.COLORS.WHITE_100};
         font-family: 'Roboto Slab', serif;
         font-size: 16px;
 
