@@ -1,18 +1,33 @@
-import { Content, Container, Footering } from "./styles";
+// import { Content, Container, Footering } from "./styles";
 
-export function Footer({ className }) {
+import { Container } from "./styles";
+
+export function Footer() {
   return (
-    <Footering className={className}>
-      <Container>
-        <Content >
-          <div>
-            <img src="/src/assets/imagens/Polygon2.svg" alt="polygon" />
-            <h1>food explorer</h1>
-          </div>
+    <Container>
+      <div>
+        <img src="/src/assets/imagens/Polygon2.svg" alt="polygon" />
+        <h1>food explorer</h1>
+      </div>
 
-          <p>© 2023 - Todos os direitos reservados.</p>
-        </Content>
-      </Container>
-    </Footering>
+      <p>© 2023 - Todos os direitos reservados.</p>
+    </Container>
   );
 }
+
+// export function Footer({ className }) {
+//   return (
+//     <Footering className={className}>
+//       <Container>
+//         <Content >
+//           <div>
+//             <img src="/src/assets/imagens/Polygon2.svg" alt="polygon" />
+//             <h1>food explorer</h1>
+//           </div>
+
+//           <p>© 2023 - Todos os direitos reservados.</p>
+//         </Content>
+//       </Container>
+//     </Footering>
+//   );
+// }

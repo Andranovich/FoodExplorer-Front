@@ -1,10 +1,10 @@
 import { Container, Footer } from "./styles";
 import { Navbar } from "../../components/Navbar";
+import { Button } from "../../components/Button";
 import { PiCaretLeft } from "react-icons/pi";
 import { ButtonInclude } from "../../components/ButtonInclude";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-
-
+import { PiReceipt } from "react-icons/pi";
 
 export function Plate() {
   return (
@@ -28,6 +28,8 @@ export function Plate() {
               <span>cebola</span>
               <span>pão naan</span>
               <span>pepino</span>
+              <span>pepino</span>
+              <span>pepino</span>
             </div>
             <div className="amount">
               <div className="counter">
@@ -39,7 +41,15 @@ export function Plate() {
                   <AiOutlinePlus />
                 </a>
               </div>
-              <ButtonInclude title="incluir ∙ R$ 25,00" />
+              <ButtonInclude
+                className="buttonDesktop"
+                title="incluir ∙ R$ 25,00"
+              />
+              <Button
+                className="buttonMobile"
+                icon={<PiReceipt />}
+                title="pedir ∙ R$ 25,00"
+              />
             </div>
           </div>
         </div>
