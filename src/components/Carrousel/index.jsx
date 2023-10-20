@@ -3,52 +3,16 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import { useState, useEffect } from "react";
 import { Container } from "./styles";
-import { Card } from "../../components/Card";
+import { Card } from "../Card";
+import { Link } from "react-router-dom";
 import img1 from "../../assets/imagens/DishRavanello.svg";
 import img2 from "../../assets/imagens/DishGambe.svg";
 import img3 from "../../assets/imagens/parma.svg";
 import img4 from "../../assets/imagens/Molla.svg";
 
-export function HomeCards() {
+export function HomeCards({data}) {
   const [slidePerView, setSlidePerView] = useState(3.5);
 
-  const content = [
-    {
-      id: 1,
-      img: img1,
-      title: "Salada Ravanello >",
-      description:
-        "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim",
-      value: "R$ 49,97",
-    },
-
-    {
-      id: 2,
-      img: img2,
-      title: "Salada Ravanello >",
-      description:
-        "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim",
-      value: "R$ 49,97",
-    },
-
-    {
-      id: 3,
-      img: img3,
-      title: "Salada Ravanello >",
-      description:
-        "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim",
-      value: "R$ 49,97",
-    },
-
-    {
-      id: 4,
-      img: img4,
-      title: "Salada Ravanello >",
-      description:
-        "Rabanetes, folhas verdes e molho agridoce salpicados com gergelim",
-      value: "R$ 49,97",
-    },
-  ];
 
   useEffect(() => {
     function handleResize() {
@@ -82,23 +46,20 @@ export function HomeCards() {
           slidesPerView={slidePerView}
           navigation
         >
-          {content.map((item) => {
+          {data.map((item) => {
             return (
               <SwiperSlide key={item.id}>
                 <Card
-                  img={item.img}
+                  image={item.image}
                   title={item.title}
                   description={item.description}
-                  value={item.value}
+                  price={item.price}
                 />
               </SwiperSlide>
             );
           })}
         </Swiper>
-
       </div>
-      
     </Container>
-    
   );
 }

@@ -1,8 +1,36 @@
 import { Container, Form } from "./styles";
-import { Input } from "../../components/Input";
+import { useState } from "react";
 import { Button } from "../../components/Button";
+import { Input } from "../../components/Input";
+import { api } from "../../services/api";
+import { Link, useNavigate } from "react-router-dom";
 
 export function SignUp() {
+  const [name, setName] = useState(""); //hook que cria um estato
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  function handleSignUp() {
+    if(!name || !email || !password) {
+      return alert("Preencha todos os campos!")
+    }
+
+    api.post("/users", {name, email, password})
+    .then(() => {
+      alert("Usuário cadastrado com sucesso!");
+      navigate("/Home");
+    })
+    .catch(error => {
+      if(error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert("Não foi possível cadastrar.")
+      }
+    })
+  }
+
   return (
     <Container>
       <div>
@@ -14,22 +42,40 @@ export function SignUp() {
 
         <div className="formInput">
           <p>Seu nome</p>
-          <Input placeholder="Exemplo: Maria da Silva" type="text" />
+
+          <Input
+            placeholder="Exemplo: Maria da Silva"
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
 
         <div className="formInput">
           <p>Email</p>
-          <Input placeholder="Exemplo: exemplo@exemplo.com.br" type="email" />
+
+          <Input 
+            placeholder="Exemplo: exemplo@exemplo.com.br" 
+            type="email" 
+            onChange={e => setEmail(e.target.value)}
+          />
         </div>
 
         <div className="formInput">
           <p>Senha</p>
-          <Input placeholder="No mínimo 6 caracteres" type="password" />
+
+          <Input 
+            placeholder="No mínimo 6 caracteres" 
+            type="password" 
+            onChange={e => setPassword(e.target.value)}
+          />
         </div>
 
-        <Button title="Criar nota" />
+        <Button 
+          title="Criar conta"
+          onClick={handleSignUp}
+        />
 
-        <a href="/">Já tenho uma conta</a>
+        <Link to="/">Já tenho uma conta</Link>
       </Form>
     </Container>
   );

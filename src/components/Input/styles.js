@@ -3,12 +3,11 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-
   width: 100%;
   border-radius: 5px;
-
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
+  height: 56px;
+
 
   > div {
     border-radius: 5px;
@@ -23,7 +22,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
 
-    height: 48px;
+    height: 56px;
     padding: 12px 14px;
     gap: 14px;
     flex: 1 0 0;
