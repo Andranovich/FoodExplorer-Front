@@ -4,11 +4,8 @@ import "swiper/swiper-bundle.css";
 import { useState, useEffect } from "react";
 import { Container } from "./styles";
 import { Card } from "../Card";
-import { Link } from "react-router-dom";
-import img1 from "../../assets/imagens/DishRavanello.svg";
-import img2 from "../../assets/imagens/DishGambe.svg";
-import img3 from "../../assets/imagens/parma.svg";
-import img4 from "../../assets/imagens/Molla.svg";
+ 
+
 
 export function HomeCards({data}) {
   const [slidePerView, setSlidePerView] = useState(3.5);

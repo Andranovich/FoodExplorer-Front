@@ -10,12 +10,7 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 15px;
   position: relative;
-
-  /* border-radius: 8px;
-  width: 100%;
-  height: 100%;
-  background-color: ${({ theme }) => theme.COLORS.DARK_200};
-  position: relative; */
+  padding: 24px;
 
   @media (max-width: 1200px) {
     min-width: 240px;
@@ -45,10 +40,10 @@ export const Container = styled.div`
 
   > div {
     display: flex;
-    padding: 24px;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    justify-content: center;
     gap: 15px;
 
     @media (max-width: 1100px) {
@@ -148,7 +143,7 @@ export const Container = styled.div`
 `;
 
 export const Favorite = styled.div`
-  width: 24px;
+  width: 22px;
   height: 22px;
   position: absolute;
   right: 18px;
@@ -161,16 +156,13 @@ export const Favorite = styled.div`
 `;
 
 export const Edit = styled.button`
+  width: 22px;
+  height: 22px;
   position: absolute;
-  width: 2.4rem;
-  height: 2.2rem;
-  left: 17rem;
-  top: 1.6rem;
-
-  @media (min-width: 900px) {
-    left: 25rem;
-    top: 1.6rem;
-  }
+  right: 18px;
+  top: 16px;
+  background-color: transparent;
+  border: none;  
 `;
 
 export const Price = styled.p`
@@ -193,21 +185,13 @@ export const Price = styled.p`
   }
 `;
 export const ImageProduct = styled.div`
-  width: 8.8rem;
-  height: 8.8rem;
   border-radius: 50%;
-  margin-top: ${({ isAdmin }) => (isAdmin ? "5rem" : "none")};
 
   img {
     object-fit: cover;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-  }
-
-  @media (min-width: 900px) {
-    width: 17.6rem;
-    height: 17.6rem;
   }
 `;
 
@@ -223,15 +207,16 @@ export const Title = styled(Link)`
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
   img {
-    width: 0.4rem;
-    height: 1.4rem;
+    width: 6.4px;
+    height: 22.4px;
     text-align: center;
-    margin-left: 1rem;
+    margin-left: 16px;
   }
 
   @media (min-width: 900px) {
     font-size: 2.2rem;
     line-height: 3.3rem;
+
     img {
       width: 0.6rem;
     }
@@ -246,7 +231,6 @@ export const Description = styled.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 22.4px;
-  display: flex;
   font-family: "Roboto", sans-serif;
   color: ${({ theme }) => theme.COLORS.WHITE_400};
 

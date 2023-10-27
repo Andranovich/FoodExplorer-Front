@@ -16,6 +16,7 @@ import EditIcon from "../../assets/imagens/pencil.svg";
 import CaretRightIcon from "../../assets/imagens/caretRight.svg";
 import { Button } from "../Button";
 import { Amount } from "../Amount";
+import { Link, redirect } from "react-router-dom";
 
 import { useAuth } from "../../hooks/auth";
 import { useState, useEffect } from "react";
@@ -151,16 +152,20 @@ export function Card({
         </Favorite>
       ) : (
         <Edit onClick={onClick}>
-          <img src={EditIcon} alt="Icone para editar o produto" />
+          <Link to="/Editplate">
+            <img 
+              src={EditIcon} 
+              alt="Icone para editar o produto" />
+          </Link>
         </Edit>
       )}
 
       <ImageProduct isAdmin={isAdmin}>
-        <img src={`http://localhost:3333/image/${image}`} alt="Expresso" />
+        <img src={`http://localhost:3333/image/${image}`} alt='' />
         {/* <img src={src} alt={`Imagem do produto ${title}`} /> */}
       </ImageProduct>
 
-      <Title to={to}>{title}</Title>
+      <Title to="/Plate">{title}</Title>
 
       <Description>{description}</Description>
 

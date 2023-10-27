@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Footer as FooterComponent } from "../../components/Footer";
 
 export const Container = styled.div`
+
   max-width: 1440px;
   width: 100%;
   height: 100%;
@@ -15,7 +16,7 @@ export const Container = styled.div`
     min-height: 900px;
   }
 
-  > a {
+   .backArrow {
     display: flex;
     font-family: "Poppins", sans-serif;
     font-size: 24px;
@@ -23,9 +24,8 @@ export const Container = styled.div`
     font-weight: 700;
     line-height: 33.6px;
     color: white;
-    margin-top: 24px;
+    margin-top: 32px;
     margin-left: 122px;
-    position: absolute;
 
     @media (max-width: 1100px) {
       display: flex;
@@ -39,7 +39,7 @@ export const Container = styled.div`
     max-height: 800px;
 
     gap: 48px;
-    margin-top: 142px;
+    margin-top: 108px;
     margin-left: 141px;
     margin-right: 141px;
     position: relative;
@@ -150,15 +150,24 @@ export const Container = styled.div`
     }
 
     .buttonDesktop {
+      height: 48px;
+      width: 131px;
+      padding: 0;
+
       @media (max-width: 1100px) {
         display: none;
       }
     }
 
     .buttonMobile {
+
+      padding: 0;
+
+
       @media (min-width: 1100px) {
         display: none;
       }
+      
     }
 
     > button {
@@ -170,7 +179,7 @@ export const Container = styled.div`
 
       @media (max-width: 1100px) {
         height: 37px;
-        width: 100%;
+        width: 180px;
         text-align: center;
         font-size: 9.5px;
         line-height: 16px;
@@ -181,8 +190,7 @@ export const Container = styled.div`
   .counter {
     display: flex;
     gap: 14px;
-    width: 100%;
-    align-items: center;
+    align-items: start;
 
     @media (max-width: 1100px) {
       width: auto;
@@ -208,6 +216,13 @@ export const Container = styled.div`
       display: flex;
     }
   }
+
+  /* Button {
+    width: auto;
+    height: 48px;
+
+
+  } */
 `;
 
 export const Footer = styled(FooterComponent)`

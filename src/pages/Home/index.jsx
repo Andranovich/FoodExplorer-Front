@@ -16,12 +16,12 @@ export function Home() {
   let typeDishes;
 
   async function getDishes() {
-    const response = await axios.get("http://localhost:3333/dishes", {headers:{Authorization: 'Bearer ' + localStorage.getItem("token")}});
-    
+    const response = await axios.get("http://localhost:3333/dishes?category=Refeições", {headers:{Authorization: 'Bearer ' + localStorage.getItem("token")}});
+   
     if (response.status === 200) {
       setDishes(response.data);
     }
-  }
+  }  
 
   useEffect(() => {
     getDishes();
@@ -48,9 +48,9 @@ export function Home() {
       <Navbar setSearch={setSearch} />
       <Container>
         <HomeBanner />
-        <HomeCards data={dishes}/>
-        <HomeDesserts />
-        <HomeDrinks />
+        <HomeCards data={dishes.filter((item) => item.category === 'Refeições' )}/>
+        <HomeDesserts data={dishes.filter((item) => item.category === 'Sobremesas' )} />
+        <HomeDrinks data={dishes.filter((item) => item.category === 'Bebidas' )}/>
       </Container>
       <Footer />
     </main>

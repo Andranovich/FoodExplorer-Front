@@ -8,46 +8,8 @@ import img9 from "../../assets/imagens/Expresso.svg";
 import img10 from "../../assets/imagens/Maracuja.svg";
 import img11 from "../../assets/imagens/Autunno.svg";
 
-export function HomeDrinks() {
+export function HomeDrinks({ data }) {
   const [slidePerView, setSlidePerView] = useState(3.5);
-
-  const content = [
-    {
-      id: 9,
-      img: img9,
-      title: "Espresso >",
-      description:
-        "Café cremoso feito na temperatura e pressões perfeitas.",
-      value: "R$ 15,97",
-    },
-
-    {
-      id: 10,
-      img: img10,
-      title: "Suco de maracujá >",
-      description:
-        "Suco de maracujá gelado, cremoso, docinho.",
-      value: "R$ 13,97",
-    },
-
-    {
-      id: 11,
-      img: img11,
-      title: "Tè d'autunno >",
-      description:
-        "Chá de anis, canela e limão. Sinta o outono italiano.",
-      value: "R$ 19,97",
-    },
-
-    {
-      id: 12,
-      img: img11,
-      title: "Pomo bourbon  >",
-      description:
-        "Maçã, whisky, canela. On the rocks.",
-      value: "R$ 79,97",
-    },
-  ];
 
   useEffect(() => {
     function handleResize() {
@@ -73,7 +35,7 @@ export function HomeDrinks() {
 
   return (
     <Container>
-      <h1>Sobremesas</h1>
+      <h1>Bebidas</h1>
       <div>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -81,23 +43,20 @@ export function HomeDrinks() {
           slidesPerView={slidePerView}
           navigation
         >
-          {content.map((item) => {
+          {data.map((item) => {
             return (
               <SwiperSlide key={item.id}>
                 <Card
-                  img={item.img}
+                  image={item.image}
                   title={item.title}
                   description={item.description}
-                  value={item.value}
+                  price={item.price}
                 />
               </SwiperSlide>
             );
           })}
         </Swiper>
-
       </div>
-      
     </Container>
-    
   );
 }
