@@ -98,7 +98,8 @@ export const Content = styled.div`
       height: 32px;
       display: flex;
       align-items: center;
-      
+      background-color: transparent;
+      border: none;
     }
 
     .logo {

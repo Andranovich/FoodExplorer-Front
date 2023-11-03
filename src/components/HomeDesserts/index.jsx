@@ -44,6 +44,7 @@ export function HomeDesserts({data}) {
           navigation
         >
           {data.map((item) => {
+            console.log(item);
             return (
               <SwiperSlide key={item.id}>
                 <Card
@@ -51,6 +52,7 @@ export function HomeDesserts({data}) {
                   title={item.title}
                   description={item.description}
                   price={item.price}
+                  id={item.id}
                 />
               </SwiperSlide>
             );

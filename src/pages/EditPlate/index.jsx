@@ -1,11 +1,46 @@
-import { Container, Footer } from "./styles";
+import { Container } from "./styles";
 import { Navbar } from "../../components/Navbar";
 import { Button } from "../../components/Button";
 import { PiCaretLeft } from "react-icons/pi";
 import { PiUploadSimpleBold } from "react-icons/pi";
 import { NoteItem } from "../../components/NoteItem";
+import { Footer } from "../../components/Footer";
+import { useParams } from "react-router-dom";
+import { api } from "../../services/api";
+import { useEffect, useState } from "react";
+
+const initialPlate = {
+  id: 0,
+  title: "",
+  description: "",
+  category: "",
+  price: "",
+  image: "",
+  ingredients: [],
+};
 
 export function EditPlate() {
+
+  const params = useParams();
+  const [plate, setPlate] = useState(initialPlate);
+
+
+  const getPlate = async () => {
+    try {
+      const response = await api.get(`/dishes/${params.id}`);
+
+      if (response.status === 201) {
+        setPlate(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getPlate();
+  }, []);
+
   return (
     <main>
       <Navbar />
@@ -27,14 +62,19 @@ export function EditPlate() {
 
         <div className="grid4">
           <h2>Nome</h2>
-          <input type="text" placeholder="Salada César" />
+          <input type="text" placeholder="Nome do prato" onChange={(e) => {
+            setPlate({...plate, title: e.target.value});
+          }} value={plate.title}/>
         </div>
 
         <div className="grid5">
           <h2>Categoria</h2>
-          <select name="select">
+          <select name="select" value={plate.category} onChange={(e) => {
+            setPlate({...plate, category: e.target.value});
+          }} 
+          >
             <option value="Refeições">Refeições</option>
-            <option value="Sobremesas" selected>
+            <option value="Sobremesas">
               Sobremesas
             </option>
             <option value="Bebidas">Bebidas</option>
@@ -43,15 +83,20 @@ export function EditPlate() {
 
         <div className="grid6">
           <h2>Ingredientes</h2>
-          <section className="ingredients">
-            <NoteItem value="Pão naan" />
-            <NoteItem isNew />
+          <section  className="ingredients">{plate.ingredients.map((ingredient) => {
+            return (
+              <NoteItem className="note" value={ingredient.name} />
+              )
+            })}
+            <NoteItem className="note" isNew />
           </section>
         </div>
 
         <div className="grid7">
           <h2>Preço</h2>
-          <input type="text" placeholder="R$ 42,00" />
+          <input type="text" placeholder={`R$ ${plate.price}`} onChange={(e) => {
+            setPlate({...plate, price: e.target.value});
+          }} value={plate.price}/>
         </div>
 
         <div className="grid8">
@@ -61,8 +106,9 @@ export function EditPlate() {
             id=""
             cols=""
             rows="8"
-            placeholder="A Salada César é uma opção refrescante para o verão."
-          ></textarea>
+            placeholder="descrição" onChange={(e) => {
+              setPlate({...plate, description: e.target.value});
+            }} value={plate.description}></textarea>
         </div>
 
         <div className="buttons">

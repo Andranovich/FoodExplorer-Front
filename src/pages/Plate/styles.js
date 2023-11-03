@@ -1,19 +1,14 @@
 import styled from "styled-components";
-import { Footer as FooterComponent } from "../../components/Footer";
 
 export const Container = styled.div`
 
   max-width: 1440px;
-  width: 100%;
-  height: 100%;
-  max-height: 830px;
+  min-height: 740px;
   margin: 0 auto;
-  display: flex;
-  position: relative;
 
   @media (max-width: 1100px) {
     justify-content: center;
-    min-height: 900px;
+    max-height: 720px;
   }
 
    .backArrow {
@@ -225,7 +220,4 @@ export const Container = styled.div`
   } */
 `;
 
-export const Footer = styled(FooterComponent)`
-  position: absolute;
-  bottom: 0;
-`;
+

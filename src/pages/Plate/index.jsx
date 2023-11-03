@@ -1,4 +1,4 @@
-import { Container, Footer } from "./styles";
+import { Container } from "./styles";
 import { Navbar } from "../../components/Navbar";
 import { Button } from "../../components/Button";
 import { PiCaretLeft } from "react-icons/pi";
@@ -6,14 +6,43 @@ import { ButtonInclude } from "../../components/ButtonInclude";
 import { Amount } from "../../components/Amount";
 import { PiReceipt } from "react-icons/pi";
 import { useAuth } from "../../hooks/auth";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { Footer } from "../../components/Footer";
+import { api } from "../../services/api";
+
+const initialPlate = {
+  id: 0,
+  title: "",
+  description: "",
+  category: "",
+  price: "",
+  image: "",
+  ingredients: [],
+};
 
 export function Plate() {
   const { user } = useAuth();
   const isAdmin = user.isAdmin;
   const [value, setValue] = useState(1);
+  const [plate, setPlate] = useState(initialPlate);
+  const params = useParams();
 
+  const getPlate = async () => {
+    try {
+      const response = await api.get(`/dishes/${params.id}`);
+
+      if (response.status === 201) {
+        setPlate(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getPlate();
+  }, []);
 
   return (
     <main>
@@ -27,38 +56,26 @@ export function Plate() {
             </a>
             <div className="dish">
               <img
-                src="../../../src/assets/imagens/DishRavanello.svg"
-                alt="Food"
+                src={`http://localhost:3333/image/${plate.image}`}
+                alt={plate.title}
               />
               <div className="dishInfo">
-                <h1>Salada Ravanello</h1>
-                <p>
-                  Rabanetes, folhas verdes e molho agridoce salpicados com
-                  gergelim. O pão naan dá um toque especial.
-                </p>
+                <h1>{plate.title}</h1>
+                <p>{plate.description}</p>
                 <div className="tags">
-                  <span>alface</span>
-                  <span>cebola</span>
-                  <span>pão naan</span>
-                  <span>pepino</span>
-                  <span>pepino</span>
-                  <span>pepino</span>
+                  {plate.ingredients.map((ingredient) => {
+                    return <span>{ingredient.name}</span>;
+                  })}
                 </div>
                 <div className="amount">
-                  
-                  <Link to="/EditPlate">
+                  <Link to={`/Plate/${params.id}/Edit`}>
                     <ButtonInclude
                       className="buttonDesktop "
                       title="Editar prato"
                     />
-
                   </Link>
 
-                  <Button
-                    className="buttonMobile"
-                    title="Editar prato"
-                  />
-                  
+                  <Button className="buttonMobile" title="Editar prato" />
                 </div>
               </div>
             </div>
@@ -71,35 +88,29 @@ export function Plate() {
             </a>
             <div className="dish">
               <img
-                src="../../../src/assets/imagens/DishRavanello.svg"
+                src={`http://localhost:3333/image/${plate.image}`}
                 alt="Food"
               />
               <div className="dishInfo">
-                <h1>Salada Ravanello</h1>
-                <p>
-                  Rabanetes, folhas verdes e molho agridoce salpicados com
-                  gergelim. O pão naan dá um toque especial.
-                </p>
+                <h1>{plate.title}</h1>
+                <p>{plate.description}</p>
                 <div className="tags">
-                  <span>alface</span>
-                  <span>cebola</span>
-                  <span>pão naan</span>
-                  <span>pepino</span>
-                  <span>pepino</span>
-                  <span>pepino</span>
+                  {plate.ingredients.map((ingredient) => {
+                    return <span>{ingredient.name}</span>;
+                  })}
                 </div>
                 <div className="amount">
                   <div className="counter">
-                  {!isAdmin && <Amount value={value} setValue={setValue} />}
+                    {!isAdmin && <Amount value={value} setValue={setValue} />}
                   </div>
                   <ButtonInclude
                     className="buttonDesktop"
-                    title="incluir ∙ R$ 25,00"
+                    title={`incluir ∙ R$ ${plate.price}`}
                   />
                   <Button
                     className="buttonMobile"
                     icon={<PiReceipt />}
-                    title="pedir ∙ R$ 25,00"
+                    title={`pedir ∙ R$ ${plate.price}`}
                   />
                 </div>
               </div>

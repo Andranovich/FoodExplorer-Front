@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import { Footer as FooterComponent } from "../../components/Footer";
 
 export const Container = styled.div`
   max-width: 1440px;
-  max-height: 800px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -19,11 +17,9 @@ export const Container = styled.div`
     padding-right: 123px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 1fr) 2fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     gap: 32px;
-    margin-bottom: 120px;
   }
 
   svg {
@@ -68,6 +64,14 @@ export const Container = styled.div`
     }
   }
 
+  .grid7 {
+    grid-area: 4 / 5 / 5 / 6;
+
+    > input {
+      background-color: ${({ theme }) => theme.COLORS.DARK_800};
+    }
+  }
+
   @media (min-width: 800px) {
     .grid3 {
       grid-area: 3 / 1 / 4 / 2;
@@ -75,6 +79,10 @@ export const Container = styled.div`
 
     .grid4 {
       grid-area: 3 / 2 / 4 / 4;
+
+      > input {
+        background-color: ${({ theme }) => theme.COLORS.DARK_800};
+      }
     }
 
     .grid5 {
@@ -87,6 +95,10 @@ export const Container = styled.div`
 
     .grid7 {
       grid-area: 4 / 5 / 5 / 6;
+
+      > input {
+        background-color: ${({ theme }) => theme.COLORS.DARK_800};
+      }
     }
 
     .grid8 {
@@ -113,7 +125,6 @@ export const Container = styled.div`
     align-items: center;
     width: 100%;
     border-radius: 5px;
-    background-color: ${({ theme }) => theme.COLORS.DARK_800};
     height: 48px;
     border-style: none;
     padding-left: 14px;
@@ -143,6 +154,7 @@ export const Container = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: 24px;
+    width: 100%;
     color: ${({ theme }) => theme.COLORS.WHITE_100};
     padding: 12px 20px;
     display: flex;
@@ -151,8 +163,8 @@ export const Container = styled.div`
     justify-content: center;
     border-radius: 5px;
     background-color: ${({ theme }) => theme.COLORS.DARK_800};
+    height: 48px;
     gap: 8px;
-    width: 100%;
     border-style: none;
   }
 
@@ -162,8 +174,13 @@ export const Container = styled.div`
     width: 100%;
     border-radius: 5px;
     background-color: ${({ theme }) => theme.COLORS.DARK_800};
+
     border-style: none;
     height: 48px;
+  }
+
+  .note {
+    height: 32px;
   }
 
   textarea {
@@ -188,11 +205,11 @@ export const Container = styled.div`
 
     > .delete {
       background-color: ${({ theme }) => theme.COLORS.DARK_800};
+      height: 48px;
+    }
+
+    > .save {
+      height: 48px;
     }
   }
-`;
-
-export const Footer = styled(FooterComponent)`
-  position: absolute;
-  bottom: 0;
 `;

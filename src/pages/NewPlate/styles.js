@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import { Footer as FooterComponent } from "../../components/Footer";
 
 export const Container = styled.div`
   max-width: 1440px;
-  max-height: 800px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -19,11 +17,9 @@ export const Container = styled.div`
     padding-right: 123px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 1fr) 2fr 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     gap: 32px;
-    margin-bottom: 120px;
   }
 
   svg {
@@ -196,7 +192,4 @@ export const Container = styled.div`
   }
 `;
 
-export const Footer = styled(FooterComponent)`
-  position: absolute;
-  bottom: 0;
-`;
+

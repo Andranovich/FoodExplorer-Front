@@ -1,13 +1,10 @@
-import { Container, Footer } from "./styles";
+import { Container } from "./styles";
 import { Navbar } from "../../components/Navbar";
 import { Button } from "../../components/Button";
 import { PiCaretLeft } from "react-icons/pi";
-import { ButtonInclude } from "../../components/ButtonInclude";
-import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import { PiReceipt } from "react-icons/pi";
 import { PiUploadSimpleBold } from "react-icons/pi";
 import { NoteItem } from "../../components/NoteItem";
-
+import { Footer } from "../../components/Footer";
 
 export function NewPlate() {
   return (
@@ -31,7 +28,7 @@ export function NewPlate() {
 
         <div className="grid4">
           <h2>Nome</h2>
-          <input type="text" placeholder="Ex.: Salada Ceasar" />
+          <input type="text" placeholder="Ex.: Salada César" />
         </div>
 
         <div className="grid5">
@@ -69,8 +66,7 @@ export function NewPlate() {
           ></textarea>
         </div>
 
-        <div className="buttons">
-         
+        <div className="buttons">         
           <Button className="save" title="Salvar alterações" />
         </div>
       </Container>

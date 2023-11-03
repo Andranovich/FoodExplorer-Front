@@ -6,6 +6,8 @@ import { BiSearch } from "react-icons/bi";
 import { useAuth } from "../../hooks/auth";
 import { Button } from "../Button";
 import { Input } from "../Input";
+import { MenuAdmin } from "../../pages/MenuAdmin";
+import { Menu } from "../../pages/Menu";
 import { Link, useNavigate } from "react-router-dom";
 
 export function Navbar({ setSearch, id, ...rest }) {
@@ -58,12 +60,24 @@ export function Navbar({ setSearch, id, ...rest }) {
 
           <nav className="mobile">
 
+            {isAdmin ? (
+              <div className="mobile-menu">
+                
+                <Link to="/MenuAdmin">
+                  <AiOutlineMenu />
+                </Link>
+              </div>
+
+            ):(
+              <div className="mobile-menu">
+                
+                <Link to="/Menu">
+                  <AiOutlineMenu />
+                </Link>
+              </div>
+            )
+            }
             
-            <div className="mobile-menu">
-              <a href="/">
-                <AiOutlineMenu />
-              </a>
-            </div>
 
             {isAdmin ? (
               <div className="logo">

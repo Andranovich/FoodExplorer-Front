@@ -73,21 +73,29 @@ import styled from "styled-components";
 // `;
 
 export const Container = styled.footer`
-  width: 100%;
+  
+  
   background-color: ${({ theme }) => theme.COLORS.DARK_600};
   color: ${({ theme }) => theme.COLORS.WHITE_700};
-  bottom: 0;
-  position: fixed;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 123px;
-
-  @media (max-width: 800px) {
-    padding: 30px 27px;
-    height: 77px;
+  footer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin:  auto;
+    align-items: center;
+    padding: 24px 123px;
+    
+    @media (max-width: 800px) {
+      padding: 30px 27px;
+      height: 77px;
+    }
   }
+
+
 
   div {
     display: flex;

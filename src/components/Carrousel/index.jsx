@@ -47,10 +47,11 @@ export function HomeCards({data}) {
             return (
               <SwiperSlide key={item.id}>
                 <Card
-                  image={item.image}
+                  image={item.image} 
                   title={item.title}
                   description={item.description}
                   price={item.price}
+                  id={item.id}
                 />
               </SwiperSlide>
             );

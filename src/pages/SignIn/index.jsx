@@ -5,25 +5,28 @@ import { Link, redirect } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../hooks/auth";
 import axios from "axios";
+import { SignUp } from "../../pages/SignUp";
 
 export function SignIn() {
-
   const { signIn } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   async function handleSignIn() {
-    signIn({email, password})
+    signIn({ email, password });
 
-    const response = await axios.post("http://localhost:3333/sessions", {email, password}) 
-    
+    const response = await axios.post("http://localhost:3333/sessions", {
+      email,
+      password,
+    });
+
     if (response.status === 200) {
-      localStorage.setItem('token', response.data.token);
+      localStorage.setItem("token", response.data.token);
     }
 
-    if(response.data.isAdmin === 1) {
-      return redirect("/HomeAdmin")
+    if (response.data.isAdmin === 1) {
+      return redirect("/HomeAdmin");
     }
   }
 
@@ -39,31 +42,29 @@ export function SignIn() {
 
         <div className="formInput">
           <p>Email</p>
-          <Input 
-            placeholder="Exemplo: exemplo@exemplo.com.br" 
-            type="email" 
+          <Input
+            placeholder="Exemplo: exemplo@exemplo.com.br"
+            type="email"
             onChange={(event) => {
-              setEmail(event.target.value)
-            }} 
+              setEmail(event.target.value);
+            }}
           />
         </div>
 
         <div className="formInput">
           <p>Senha</p>
-          <Input 
-            placeholder="No mínimo 6 caracteres" 
-            type="password" 
+          <Input
+            placeholder="No mínimo 6 caracteres"
+            type="password"
             onChange={(event) => {
-              setPassword(event.target.value)
+              setPassword(event.target.value);
             }}
           />
         </div>
 
-        <Button title="Entrar"
-          onClick={handleSignIn}
-        />
+        <Button title="Entrar" onClick={handleSignIn} />
 
-        <Link to="/register">Crie uma conta</Link>
+        <Link to="/SignUp">Crie uma conta</Link>
       </Form>
     </Container>
   );
