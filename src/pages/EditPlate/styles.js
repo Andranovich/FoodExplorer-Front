@@ -48,6 +48,44 @@ export const Container = styled.div`
   .grid3 {
     display: flex;
     flex-direction: column;
+
+    div {
+      background-color: ${({ theme }) => theme.COLORS.DARK_800};
+      display: flex;
+      width: auto;
+      align-items: center;
+      position: relative;
+      border-radius: 5px;
+      height: 48px;
+      border-style: none;
+      padding-left: 14px;
+      color: #ffffff;
+      flex-wrap: wrap;
+
+      > label {
+        width: 100%;
+        height: 48px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+      }
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    svg {
+      margin: auto 0;
+    }
+  }
+
+  .grid4 {
+    > input {
+      background-color: ${({ theme }) => theme.COLORS.DARK_800};
+    }
   }
 
   h1 {

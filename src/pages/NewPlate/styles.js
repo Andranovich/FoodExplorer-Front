@@ -48,6 +48,39 @@ export const Container = styled.div`
   .grid3 {
     display: flex;
     flex-direction: column;
+
+    div {
+      background-color: ${({ theme }) => theme.COLORS.DARK_800};
+      display: flex;
+      width: auto;
+      align-items: center;
+      position: relative;
+      border-radius: 5px;
+      height: 48px;
+      border-style: none;
+      padding-left: 14px;
+      color: #ffffff;
+      flex-wrap: wrap;
+
+      > label {
+        width: 100%;
+        height: 48px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+
+      }
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    svg {
+      margin: auto 0;
+    }
   }
 
   h1 {
@@ -68,6 +101,8 @@ export const Container = styled.div`
     .grid3 {
       grid-area: 3 / 1 / 4 / 2;
     }
+
+    
 
     .grid4 {
       grid-area: 3 / 2 / 4 / 4;
@@ -178,18 +213,15 @@ export const Container = styled.div`
     display: flex;
     gap: 32px;
     justify-content: end;
-    
 
     @media (min-width: 800px) {
       grid-area: 6 / 4 / 7 / 6;
     }
 
-    .save { 
+    .save {
       width: 176px;
       height: 48px;
       padding: 0;
     }
   }
 `;
-
-
