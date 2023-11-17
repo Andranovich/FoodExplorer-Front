@@ -7,7 +7,6 @@ import { HomeDesserts } from "../../components/HomeDesserts";
 import { HomeDrinks } from "../../components/HomeDrinks";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
-import axios from "axios";
 
 
 export function Home() {
@@ -16,7 +15,7 @@ export function Home() {
   let typeDishes;
 
   async function getDishes() {
-    const response = await axios.get("/dishes?category=Refeições", {headers:{Authorization: 'Bearer ' + localStorage.getItem("token")}});
+    const response = await api.get("/dishes?category=Refeições", {headers:{Authorization: 'Bearer ' + localStorage.getItem("token")}});
    
     if (response.status === 200) {
       setDishes(response.data);

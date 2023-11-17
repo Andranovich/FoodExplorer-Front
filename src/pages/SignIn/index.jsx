@@ -4,8 +4,6 @@ import { Button } from "../../components/Button";
 import { Link, redirect } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../hooks/auth";
-import axios from "axios";
-import { SignUp } from "../../pages/SignUp";
 
 export function SignIn() {
   const { signIn } = useAuth();
@@ -16,7 +14,7 @@ export function SignIn() {
   async function handleSignIn() {
     signIn({ email, password });
 
-    const response = await axios.post("/sessions", {
+    const response = await api.post("/sessions", {
       email,
       password,
     });
