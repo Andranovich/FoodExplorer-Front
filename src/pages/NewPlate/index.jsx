@@ -16,7 +16,7 @@ export function NewPlate() {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [imageFile, setImageFile] = useState(null);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("Refeições");
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredient] = useState("");
 
