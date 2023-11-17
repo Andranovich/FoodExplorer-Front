@@ -4,6 +4,7 @@ import { Button } from "../../components/Button";
 import { Link, redirect } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../../hooks/auth";
+import { api } from "../../services/api";
 
 export function SignIn() {
   const { signIn } = useAuth();
