@@ -6,7 +6,7 @@ import { api } from "../../services/api";
 import { Link, useNavigate } from "react-router-dom";
 
 export function SignUp() {
-  const [name, setName] = useState(""); //hook que cria um estato
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

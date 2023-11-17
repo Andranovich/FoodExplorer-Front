@@ -30,22 +30,20 @@ export function Home() {
   useEffect(() => {
     async function fetchDishes() {
       const response = await api.get(
-        `/dishes?title=${search}&ingredients=${search}`
+        `/dishes?search=${search}`
       );
 
       setDishes(response.data);
+      console.log(response.data);
     }
     fetchDishes();
   }, [search]);
 
-  // if (dishes.length > 0) {
-  //   typeDishes = dishes.map((e) => e);
-  // }
-  // console.log(typeDishes);
+  
 
   return (
     <main>
-      <Navbar setSearch={setSearch} />
+      <Navbar setSearch={setSearch} search={search} />
       <Container>
         <HomeBanner />
         <HomeCards data={dishes.filter((item) => item.category === 'Refeições' )}/>

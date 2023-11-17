@@ -1,10 +1,8 @@
 import { Container } from './style';
 import PlusIcon from '../../assets/imagens/plus.svg';
 import MinusIcon from '../../assets/imagens/minus.svg';
-import { useState } from 'react';
 
 export const Amount = ( { value, setValue }) => {
-  // const valueEntrie = value.toString().padStart(2, '0');
 
   const decrement = (e) => {
     e.preventDefault();

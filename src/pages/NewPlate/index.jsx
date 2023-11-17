@@ -5,7 +5,6 @@ import { PiCaretLeft } from "react-icons/pi";
 import { PiUploadSimpleBold } from "react-icons/pi";
 import { NoteItem } from "../../components/NoteItem";
 import { Footer } from "../../components/Footer";
-import { Input } from "../../components/Input";
 
 import { useParams } from "react-router-dom";
 import { api } from "../../services/api";
@@ -18,12 +17,11 @@ export function NewPlate() {
   const [description, setDescription] = useState("");
   const [imageFile, setImageFile] = useState(null);
   const [category, setCategory] = useState("");
+  const [ingredients, setIngredients] = useState([]);
+  const [newIngredient, setNewIngredient] = useState("");
 
   const navigate = useNavigate();
   const params = useParams();
-
-  const [ingredients, setIngredients] = useState([]);
-  const [newIngredient, setNewIngredient] = useState("");
 
   function handleAddIngredient() {
     setIngredients((prevState) => [
@@ -58,8 +56,6 @@ export function NewPlate() {
         "ingredients",
         JSON.stringify(ingredients.map((ingredient) => ingredient.name))
       );
-
-      console.log(imageFile);
 
       await api
         .post("/dishes", formData, {
@@ -97,24 +93,17 @@ export function NewPlate() {
           <div>
             <label class="file">
               <PiUploadSimpleBold />
-              <input type="file" placeholder="Selecione imagem"
-                  onChange={(e) => {
-                    setImageFile(() => e.target.files);
-                    console.log(e.target.files);
-                  }}
+              <input
+                type="file"
+                placeholder="Selecione imagem"
+                onChange={(e) => {
+                  setImageFile(() => e.target.files);
+                  console.log(e.target.files);
+                }}
               />
               <span class="file-custom">Selecione imagem</span>
             </label>
           </div>
-
-          {/* <a
-            className="imageButton"
-            type="file"
-            onChange={(e) => setImageFile(e.target.files[0])}
-          >
-            
-            <p>Selecione imagem</p>
-          </a> */}
         </div>
 
         <div className="grid4">
@@ -129,7 +118,9 @@ export function NewPlate() {
         <div className="grid5">
           <h2>Categoria</h2>
           <select name="select" onChange={(e) => setCategory(e.target.value)}>
-            <option value="Refeições">Refeições</option>
+            <option value="Refeições" selected>
+              Refeições
+            </option>
             <option value="Sobremesas">Sobremesas</option>
             <option value="Bebidas">Bebidas</option>
           </select>

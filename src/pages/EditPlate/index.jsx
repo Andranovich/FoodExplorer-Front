@@ -21,7 +21,6 @@ const initialPlate = {
 };
 
 export function EditPlate() {
-
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -35,53 +34,59 @@ export function EditPlate() {
   const [plate, setPlate] = useState(initialPlate);
 
   function handleAddIngredient() {
-    setIngredients((prevState) => [...prevState, {name: newIngredient, id: ingredients.length + 1}]);
+    setIngredients((prevState) => [
+      ...prevState,
+      { name: newIngredient, id: ingredients.length + 1 },
+    ]);
+    setPlate({
+      ...plate,
+      ingredients: [...plate.ingredients, { name: newIngredient }],
+    });
+
     setNewIngredient("");
-  };
+  }
 
   function handleRemoveIngredient(deleted) {
-    setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted));
-  };
+    setPlate((prevState) => {
+      console.log(
+        prevState.ingredients.filter((ingredient) => ingredient !== deleted)
+      );
+      return {
+        ...plate,
+        ingredients: prevState.ingredients.filter(
+          (ingredient) => ingredient !== deleted
+        ),
+      };
+    });
+  }
 
   async function handleEditPlate() {
-    if(!title || !price || !description) {
+    if (!plate.title || !plate.price || !plate.description) {
       return alert("Preencha todos os campos!");
     }
-
-    if(ingredients.length < 1) {
-     return alert("Adicione no mínimo 1 ingrediente!");
+    console.log(plate.image);
+    if (ingredients.length < 1) {
+      return alert("Adicione no mínimo 1 ingrediente!");
     } else {
       const formData = new FormData();
-      formData.append("image", imageFile);
-      formData.append("title", title);
-      formData.append("description", description);
-      formData.append("price", price);
-
-      for (let i = 0; i < ingredients.length; i += 1) {
-        formData.append("ingredients", ingredients[i])
-      }
+      formData.append("image", plate.image);
+      formData.append("title", plate.title);
+      formData.append("description", plate.description);
+      formData.append("price", plate.price);
+      formData.append("ingredients", JSON.stringify(plate.ingredients));
 
       console.log(ingredients);
 
-      await api
-      .put(`/dishes/${params.id}`, formData)
-      .then(alert("Prato editado com sucesso!"))
-      .catch((error) =>{
-        if(error.response) {
-          alert(error.response.data.message);
-        } else {
-          alert("Erro ao criar prato");
-        }
-      });
+      const response = await api.put(`/dishes/${params.id}`, formData);
 
       navigate("/");
     }
-  };
+  }
 
   async function handleRemovePlate() {
     const isConfirm = confirm("Tem certeza que deseja remover?");
 
-    if(isConfirm) {
+    if (isConfirm) {
       await api.delete(`/dishes/${params.id}`);
       navigate(-1);
     }
@@ -112,24 +117,27 @@ export function EditPlate() {
           <PiCaretLeft fontSize={32} />
           voltar
         </a>
-        
+
         <h1>Editar prato</h1>
 
         <div className="grid3">
           <h2>Imagem do prato</h2>
-          
+
           <div>
             <label class="file">
               <PiUploadSimpleBold />
-              <input type="file" placeholder="Selecione imagem"
+
+              <input
+                type="file"
+                placeholder="Selecione imagem"
                 onChange={(e) => {
-                setImageFile(() => e.target.files);
-                console.log(e.target.files);
+                  setPlate(() => {
+                    return { ...plate, image: e.target.files[0] };
+                  });
                 }}
               />
               <span class="file-custom">Selecione imagem</span>
             </label>
-
           </div>
         </div>
 
@@ -138,10 +146,8 @@ export function EditPlate() {
           <input
             type="text"
             placeholder="Nome do prato"
-            onChange={e => setTitle(e.target.value)}
-            // onChange={(e) => {setPlate({ ...plate, title: e.target.value });
-            // }}
-            value={title}
+            onChange={(e) => setPlate({ ...plate, title: e.target.value })}
+            value={plate.title}
           />
         </div>
 
@@ -164,17 +170,16 @@ export function EditPlate() {
           <h2>Ingredientes</h2>
 
           <section className="ingredients">
-            
-            {ingredients.map((ingredient, index) => {
-              return <NoteItem 
-                className="note" 
-                key={String(index)}
-                onChange={(e) => setNewIngredient(e.target.value)}
-                value={ingredient.name}
-                onClick={() => handleRemoveIngredient(ingredient)} 
-                />;
-            })
-            }
+            {plate.ingredients.map((ingredient, index) => {
+              return (
+                <NoteItem
+                  className="note"
+                  key={String(index)}
+                  value={ingredient.name}
+                  onClick={() => handleRemoveIngredient(ingredient)}
+                />
+              );
+            })}
             <NoteItem
               isNew
               className="note"
@@ -182,9 +187,6 @@ export function EditPlate() {
               value={newIngredient}
               onClick={handleAddIngredient}
             />
-
-
-
           </section>
         </div>
 
@@ -192,12 +194,9 @@ export function EditPlate() {
           <h2>Preço</h2>
           <input
             type="text"
-            placeholder="R$ 00,00" 
-            onChange={(e) => setPrice(e.target.value)}
-            // onChange={(e) => {
-            //   setPlate({ ...plate, price: e.target.value });
-            // }}
-            value={price}
+            placeholder="R$ 00,00"
+            onChange={(e) => setPlate({ ...plate, price: e.target.value })}
+            value={plate.price}
           />
         </div>
 
@@ -209,25 +208,24 @@ export function EditPlate() {
             cols=""
             rows="8"
             placeholder="descrição"
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) =>
+              setPlate({ ...plate, description: e.target.value })
+            }
             defaultValue={description}
-            // onChange={(e) => {
-            //   setPlate({ ...plate, description: e.target.value });
-            // }}
-            // value={plate.description}
+            value={plate.description}
           ></textarea>
         </div>
 
         <div className="buttons">
-          <Button 
-            className="delete" 
-            title="Excluir pratos" 
+          <Button
+            className="delete"
+            title="Excluir pratos"
             onClick={handleRemovePlate}
           />
 
-          <Button 
-            className="save" 
-            title="Salvar alterações" 
+          <Button
+            className="save"
+            title="Salvar alterações"
             onClick={handleEditPlate}
           />
         </div>

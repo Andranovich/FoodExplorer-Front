@@ -69,10 +69,3 @@ export function SignIn() {
     </Container>
   );
 }
-
-/* 1-pegar dados do input , senhha e email
-  2 - criar função signIn
-  3 - Dentro da função adicionar o axios do tipo post, informando a rota e o corpo
-  4- adicionar função no botão
-
-*/

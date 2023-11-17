@@ -1,37 +1,12 @@
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/swiper-bundle.css";
-import { useState, useEffect } from "react";
-import { Container } from "./styles";
+import { Container, Slide } from "./styles";
 import { Card } from "../../components/Card";
 
 
 export function HomeDesserts({data}) {
-  const [slidePerView, setSlidePerView] = useState(3.5);
 
-  
-
-  useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth < 1000) {
-        setSlidePerView(3);
-      } else {
-        setSlidePerView(3.5);
-      }
-
-      if (window.innerWidth < 700) {
-        setSlidePerView(2);
-      }
-    }
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <Container>
@@ -40,13 +15,13 @@ export function HomeDesserts({data}) {
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={50}
-          slidesPerView={slidePerView}
+          slidesPerView={"auto"}
           navigation
         >
           {data.map((item) => {
             console.log(item);
             return (
-              <SwiperSlide key={item.id}>
+              <Slide key={item.id}>
                 <Card
                   image={item.image}
                   title={item.title}
@@ -54,7 +29,7 @@ export function HomeDesserts({data}) {
                   price={item.price}
                   id={item.id}
                 />
-              </SwiperSlide>
+              </Slide>
             );
           })}
         </Swiper>

@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
 import { Home } from "../pages/Home";
-// import { Addplate } from "../pages/Addplate";
 import { Details } from "../pages/Details";
 import { Plate } from "../pages/Plate";
 import { SignUp } from "../pages/SignUp";
