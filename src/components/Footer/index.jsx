@@ -6,7 +6,7 @@ export function Footer() {
     <Container>
       <footer>
         <div>
-          <img src="/src/assets/imagens/Polygon2.svg" alt="polygon" />
+          <img src="/src/assets/img/Polygon2.svg" alt="polygon" />
           <h1>food explorer</h1>
         </div>
 

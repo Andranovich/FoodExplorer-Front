@@ -8,7 +8,7 @@ export function AuthRoutes() {
 
   return (
     <Routes>
-      <Route path="/register" element={<SignUp />} />
+      <Route path="/SignUp" element={<SignUp />} />
       <Route path="/" element={<SignIn />} />
 
       {!user && <Route path="*" element={<Navigate to="/" />} />}

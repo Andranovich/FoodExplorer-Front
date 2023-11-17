@@ -4,7 +4,7 @@ export function HomeBanner() {
   return (
     <Container>
       <div>
-        <img src="../../../src/assets/imagens/pngegg1.png" alt="sdad" />
+        <img src="../../../src/assets/img/pngegg1.png" alt="sdad" />
 
         <div className="slogan">
           <h1>Sabores inigualáveis</h1>

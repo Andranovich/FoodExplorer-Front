@@ -1,6 +1,6 @@
 import { Container } from './style';
-import PlusIcon from '../../assets/imagens/plus.svg';
-import MinusIcon from '../../assets/imagens/minus.svg';
+import PlusIcon from '../../assets/img/plus.svg';
+import MinusIcon from '../../assets/img/minus.svg';
 
 export const Amount = ( { value, setValue }) => {
 

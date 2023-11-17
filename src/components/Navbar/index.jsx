@@ -26,13 +26,13 @@ export function Navbar({ id, setSearch, search, ...rest }) {
           <nav className="desktop">
             {isAdmin ? (
               <div>
-                <img src="/src/assets/imagens/Polygon1.svg" alt="polygon" />
+                <img src="/src/assets/img/Polygon1.svg" alt="polygon" />
                 <h1 className="logoName">food explorer</h1>
                 <p className="admin">admin</p>
               </div>
             ) : (
               <div>
-                <img src="/src/assets/imagens/Polygon1.svg" alt="polygon" />
+                <img src="/src/assets/img/Polygon1.svg" alt="polygon" />
                 <h1 className="logoName">food explorer</h1>
               </div>
             )}
@@ -75,13 +75,13 @@ export function Navbar({ id, setSearch, search, ...rest }) {
 
             {isAdmin ? (
               <div className="logo">
-                <img src="/src/assets/imagens/Polygon1.svg" alt="polygon" />
+                <img src="/src/assets/img/Polygon1.svg" alt="polygon" />
                 <h1>food explorer</h1>
                 <p className="admin">admin</p>
               </div>
             ) : (
               <div className="logo">
-                <img src="/src/assets/imagens/Polygon1.svg" alt="polygon" />
+                <img src="/src/assets/img/Polygon1.svg" alt="polygon" />
                 <h1>food explorer</h1>
               </div>
             )}
