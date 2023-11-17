@@ -1,15 +1,9 @@
 import styled from "styled-components";
-import { SwiperSlide } from "swiper/react";
 
-export const Slide = styled(SwiperSlide)`
-  max-width: 304px;
-`;
 
 export const Container = styled.div`
   margin: 0 124px 62px 124px;
-  display: flex;
-  flex-direction: column;
-  gap: 23px;
+ 
 
   @media (max-width: 1300px) {
     margin: 0 90px 24px;
@@ -31,9 +25,5 @@ export const Container = styled.div`
     }
   }
 
-  > div {
-    display: flex;
-    flex-direction: row;
-    gap: 27px;
-  }
+  
 `;

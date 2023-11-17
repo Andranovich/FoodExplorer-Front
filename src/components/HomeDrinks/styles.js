@@ -1,15 +1,7 @@
 import styled from "styled-components";
-import { SwiperSlide } from "swiper/react";
-
-export const Slide = styled(SwiperSlide)`
-  max-width: 304px;
-`;
 
 export const Container = styled.div`
   margin: 0 124px 62px 124px;
-  display: flex;
-  flex-direction: column;
-  gap: 23px;
 
   @media (max-width: 1300px) {
     margin: 0 90px 24px;
@@ -18,7 +10,7 @@ export const Container = styled.div`
   @media (max-width: 1000px) {
     margin: 0 30px 24px;
   }
-  
+
   > h1 {
     font-family: "Poppins", sans-serif;
     font-size: 32px;
@@ -29,11 +21,5 @@ export const Container = styled.div`
     @media (max-width: 700px) {
       font-size: 18px;
     }
-  }
-
-  > div {
-    display: flex;
-    flex-direction: row;
-    gap: 27px;
   }
 `;
