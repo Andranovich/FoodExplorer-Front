@@ -16,7 +16,7 @@ export function SignIn() {
   async function handleSignIn() {
     signIn({ email, password });
 
-    const response = await axios.post("http://localhost:3333/sessions", {
+    const response = await axios.post("/sessions", {
       email,
       password,
     });
