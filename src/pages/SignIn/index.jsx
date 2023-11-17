@@ -33,7 +33,7 @@ export function SignIn() {
   return (
     <Container>
       <div>
-        <img src="../../assets/Polygon1.svg" alt="polygon" />
+        <img src="/Polygon1.svg" alt="polygon" />
         <h1>food explorer</h1>
       </div>
 
