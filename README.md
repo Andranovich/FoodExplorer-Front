@@ -16,11 +16,11 @@ O Food Explorer é um aplicativo delivery de pratos gourmet. Através de uma exp
 
 ## 💻 Funcionalidades
 
-- [x] Um projeto estruturado, com uma boa organização das pastas, divisão de componentes no front-end, etc;
+- [x] Um projeto estruturado, com uma boa organização das pastas, divisão de componentes no front-end, etc.
 - [x] Os dados do admin, do restaurante e dos usuários serão armazenados em um banco de dados;
-- [x] Os usuários deverão se autenticar para entrar na aplicação através da tela de login;
-- [x] Dê nomes significativos para as suas funções e variáveis: trabalhe um pouco com os conceitos do Clean Code;
-- [x] Possibilidade de fazer uma busca pelo nome do prato, pelos ingredientes ou por prato favorito;
+- [x] Os usuários deverão se autenticar para entrar na aplicação através da tela de login, utilizando autenticação JWT;
+- [x] Funções, variáveis, classes, arquivos, tabelas e todos os outros elementos do código devem ter nomes significativos, de acordo com as boas práticas no mercado;
+- [x] Usuário e admin podem fazer uma busca tanto pelo nome do prato quanto pelos ingredientes;
 - [x] O admin irá fazer upload de imagens para cadastrar e editar tanto os pratos quanto os ingredientes;
 - [x] Interessante deixar a aplicação responsiva: utilize o conceito de Mobile First que foi aprendido em aula;
 - [x] Deixe o código mais acessível e semântico usando as dicas que foram passadas em aula;
@@ -80,7 +80,12 @@ Siga os passos abaixo para instalar e configurar a aplicação em um ambiente lo
    npm run dev
    ```
 
- 
+6. ▶️ **Conta de demosntração:**
+
+   ```bash
+   e-mail: adm@email.com
+   senha: 123
+   ```
 
 ## 🛠 Tecnologias
 
