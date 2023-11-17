@@ -7,9 +7,9 @@ import {
   Description,
   Price,
 } from "./styles";
-import HeartIcon from "../../assets/heart.svg";
-import FavoriteIcon from "../../assets/isFavorite.svg";
-import EditIcon from "../../assets/pencil.svg";
+import HeartIcon from "/heart.svg";
+import FavoriteIcon from "/isFavorite.svg";
+import EditIcon from "/pencil.svg";
 import { Button } from "../Button";
 import { Amount } from "../Amount";
 import { Link } from "react-router-dom";

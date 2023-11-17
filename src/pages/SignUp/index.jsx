@@ -34,7 +34,7 @@ export function SignUp() {
   return (
     <Container>
       <div>
-        <img src="/src/assets/Polygon1.svg" alt="polygon" />
+        <img src="/Polygon1.svg" alt="polygon" />
         <h1>food explorer</h1>
       </div>
       <Form>
