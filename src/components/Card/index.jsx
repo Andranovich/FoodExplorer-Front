@@ -74,7 +74,7 @@ export function Card({
       )}
 
       <ImageProduct isAdmin={isAdmin}>
-        <img src={`http://localhost:3333/image/${image}`} alt='' />
+        <img src={`https://food-explorer-api-qvmx.onrender.com/image/${image}`} alt='' />
       </ImageProduct>
 
       <Title to={`Plate/${id}`}>{title}</Title>

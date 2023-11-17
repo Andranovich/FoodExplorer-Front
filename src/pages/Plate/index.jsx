@@ -56,7 +56,7 @@ export function Plate() {
             </a>
             <div className="dish">
               <img
-                src={`http://localhost:3333/image/${plate.image}`}
+                src={`https://food-explorer-api-qvmx.onrender.com/image/${plate.image}`}
                 alt={plate.title}
               />
               <div className="dishInfo">
@@ -88,7 +88,7 @@ export function Plate() {
             </a>
             <div className="dish">
               <img
-                src={`http://localhost:3333/image/${plate.image}`}
+                src={`https://food-explorer-api-qvmx.onrender.com/image/${plate.image}`}
                 alt="Food"
               />
               <div className="dishInfo">
