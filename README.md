@@ -87,6 +87,12 @@ Siga os passos abaixo para instalar e configurar a aplicação em um ambiente lo
    senha: 123
    ```
 
+7. ▶️ **Link Deploy:**
+
+   ```bash
+   https://food-explorer2.netlify.app
+   ```
+
 ## 🛠 Tecnologias
 
 Este projeto foi desenvolvido com as seguintes tecnologias:
